@@ -1,0 +1,18 @@
+<launch>
+
+  <param name="use_sim_time" value="false" />
+
+  <!-- Set the name of the map yaml file: can be overridden on the command line. -->
+  <arg name="map" default="rbc_ck.yaml" />
+
+  <!-- Run the map server with the desired map -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find mx_nav)/maps/$(arg map)"/>
+
+  <!-- The move_base node -->
+  <include file="$(find mx_nav)/launch/mx_move_base.launch" />
+  <!-- The amcl node -->
+  <include file="$(find mx_nav)/launch/mx_amcl.launch" />
+
+  <arg name="rviz_view" default="false" />
+  <include if="$(arg rviz_view)" file="$(find mx_rviz)/launch/amcl_view.launch" />
+</launch>

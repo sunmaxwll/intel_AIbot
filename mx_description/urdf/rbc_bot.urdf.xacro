@@ -1,0 +1,83 @@
+<?xml version="1.0"?>  
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"  
+         xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"  
+         xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"  
+         xmlns:xacro="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface" name="rbc_robot">  
+  
+  <xacro:property name="base_size" value=".3 .2 .05" /> 
+  <xacro:property name="base_pos" value="0.085 0.0 0.065" />
+
+  <xacro:property name="camera_size" value=".01 .2 .025" />
+  <xacro:property name="camera_pos" value="-0.045 0 0.28" />
+
+  <xacro:property name="base_camera_link_size" value=".01 .02 .165" />
+  <xacro:property name="base_camera_link_pos" value="-0.045 0.0 0.175" />
+
+  <xacro:property name="nuc_size" value=".12 .12 .05" />
+  <xacro:property name="nuc_pos" value="0.02 0 0.115" />
+
+  <xacro:property name="wheel_radius" value="0.0325" />  
+  <xacro:property name="wheel_length" value="0.018" />  
+
+  <xacro:property name="wheel_front_pos" value="0.185 0 0" />  
+  <xacro:property name="wheel_left_pos" value="0 0.1 0" />  
+  <xacro:property name="wheel_right_pos" value="0 -0.1 0" />  
+  
+  <xacro:macro name="wheel" params="wheelname position">  
+    <link name="${wheelname}">  
+      <visual>  
+        <geometry>  
+          <cylinder length="${wheel_length}" radius="${wheel_radius}"/>  
+        </geometry>  
+        <origin rpy="1.570796325 0 0" xyz="${position}"/>
+        <material name="black">  
+          <color rgba="0 0 0 1"/>  
+        </material>  
+      </visual>  
+    </link>  
+  
+    <joint name="joint_base_${wheelname}" type="fixed">  
+      <parent link="base_link"/>  
+      <child link="${wheelname}"/>  
+    </joint>  
+  </xacro:macro>  
+  <xacro:wheel wheelname="wheel_front" position="${wheel_front_pos}"/>  
+  <xacro:wheel wheelname="wheel_left" position="${wheel_left_pos}"/>  
+  <xacro:wheel wheelname="wheel_right" position="${wheel_right_pos}"/>  
+
+  <xacro:macro name="body" params="body_name body_size body_pos body_color"> 
+    <link name="${body_name}"> 
+      <visual>  
+         <geometry>  
+           <box size="${body_size}"/>
+         </geometry>  
+         <origin rpy="0 0 0" xyz="${body_pos}"/>
+         <material name="${body_name}_color">  
+           <color rgba="${body_color}"/>  
+         </material>  
+      </visual>  
+    </link> 
+ 
+    <joint name="${body_name}" type="fixed">  
+      <parent link="base_link"/>  
+      <child link="${body_name}"/>  
+    </joint>  
+  </xacro:macro>
+
+  <xacro:body body_name="camera_wtf" body_size="${camera_size}" body_pos="${camera_pos}" body_color="0 0 255 1"/>
+  <xacro:body body_name="base_camera_link" body_size="${base_camera_link_size}" body_pos="${base_camera_link_pos}" body_color="1 1 1 1"/>
+  <xacro:body body_name="nuc" body_size="${nuc_size}" body_pos="${nuc_pos}" body_color="0 0 0 1"/>
+
+  <link name="base_link">  
+    <visual>  
+       <geometry>  
+         <box size="${base_size}"/>  
+       </geometry>  
+       <origin rpy="0 0 0" xyz="${base_pos}"/>  
+       <material name="white">  
+         <color rgba="1 1 1 1"/>  
+       </material>  
+    </visual>  
+  </link> 
+ 
+</robot> 

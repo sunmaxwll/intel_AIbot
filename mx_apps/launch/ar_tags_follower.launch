@@ -1,0 +1,8 @@
+<launch>
+
+  <include file="$(find mx_ar_tags)/launch/ar_indiv_kinect.launch" />
+  <include file="$(find mx_ar_tags)/launch/ar_follower.launch" />
+
+  <arg name="rviz_view" default="false" />
+  <include if="$(arg rviz_view)" file="$(find mx_rviz)/launch/ar_tags_view.launch" />
+</launch>

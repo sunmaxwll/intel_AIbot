@@ -1,0 +1,13 @@
+<launch>
+  <node
+    pkg="wiimote"
+    name="teleop_wiimote"
+    type="teleop_wiimote"
+  >
+  </node>
+  <node
+    pkg="wiimote"
+    type="wiimote_node"
+    name="wiimote_controller"
+  />
+</launch>

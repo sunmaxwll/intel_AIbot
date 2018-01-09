@@ -1,0 +1,8 @@
+<launch>
+	
+  <include file="$(find mx_nav)/launch/mx_gmapping.launch"/>
+  <include file="$(find mx_nav)/launch/mx_move_base.launch"/>
+
+  <arg name="rviz_view" default="false" />
+  <include if="$(arg rviz_view)" file="$(find mx_rviz)/launch/gmapping_view.launch" />
+</launch>

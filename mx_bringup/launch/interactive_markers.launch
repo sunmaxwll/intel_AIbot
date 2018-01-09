@@ -1,0 +1,6 @@
+<launch>
+  <!-- turtlebot_teleop_key already has its own built in velocity smoother -->
+  <node pkg="turtlebot_interactive_markers" type="turtlebot_marker_server" name="turtlebot_marker_server">
+    <remap from="cmd_vel" to="cmd_vel"/>
+  </node>
+</launch>
