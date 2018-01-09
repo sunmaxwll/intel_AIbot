@@ -58,3 +58,8 @@
 www.diegorobot.com/wp/?p=1408&lang=zh
 
 阳光明媚 备 2017.12.10
+
+修改follow_controller的joint配置，来适配已有的舵机机械臂(连杆结构)：
+
+
+阳光明媚 备 2018.01.09
