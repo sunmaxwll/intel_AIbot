@@ -1,7 +1,7 @@
 [submodule "rplidar_ros"]
 	path = rplidar_ros
-	url = https://github.com/sunmaxwll/rplidar_ros.git
+	url = https://github.com/sunmaxwll/rplidar_ros
 
 [submodule "web_video_server"]
 	path = web_video_server
-	url = https://github.com/robotwebtools/web_video_server.git
+	url = https://github.com/robotwebtools/web_video_server
