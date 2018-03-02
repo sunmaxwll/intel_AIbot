@@ -26,7 +26,7 @@ motors_reversed: true
 # === Type parameters
 
 four_wd: False
-debugPID: True
+debugPID: False
 
 # === PID parameters
 #Kp: 20
