@@ -4,6 +4,10 @@
 * RGB-D摄像头：
 realsense_camera
 
+Github:
+http://wiki.ros.org/realsense_camera
+https://github.com/intel-ros/realsense.git
+
 * ar追踪：
 ar_track_alvar
 
