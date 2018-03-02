@@ -23,10 +23,10 @@ class DualTB6612MotorShield
     //static const unsigned char _M1PWM = 8;
     //static const unsigned char _M2PWM = 6;
     
-    static const unsigned char _M1DIR_IN1 = 8;
-    static const unsigned char _M1DIR_IN2 = 7;
-    static const unsigned char _M2DIR_IN3 = 9;
-    static const unsigned char _M2DIR_IN4 = 10;
+    static const unsigned char _M1DIR_IN1 = 7;
+    static const unsigned char _M1DIR_IN2 = 8;
+    static const unsigned char _M2DIR_IN3 = 10;
+    static const unsigned char _M2DIR_IN4 = 9;
 
     static const unsigned char _M1PWM = 5;
     static const unsigned char _M2PWM = 6;

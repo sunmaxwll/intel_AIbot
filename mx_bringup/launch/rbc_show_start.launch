@@ -5,8 +5,6 @@
 
   <include file="$(find mx_bringup)/launch/urdf.launch" />
 
-  <include file="$(find mx_bringup)/launch/lr200_nodelet_rgbd.launch" />
-
   <!-- Fake laser -->
   <node pkg="nodelet" type="nodelet" name="laserscan_nodelet_manager" args="manager"/>
   <node pkg="nodelet" type="nodelet" name="depthimage_to_laserscan"
@@ -34,6 +32,11 @@
   <arg name="gui" default="false" />
   <arg name="voice" default="false" />
   <arg name="joy" default="false" />
+  <arg name="lr200" default="true" />
+  <arg name="r200" default="false" />
+
+  <include if="$(arg lr200)" file="$(find mx_bringup)/launch/lr200_nodelet_rgbd.launch"/>
+  <include if="$(arg r200)" file="$(find realsense_camera)/launch/r200_nodelet_rgbd.launch" />
 
   <include if="$(arg joy)" file="$(find mx_teleop)/launch/wii_joystick.launch" />
   <include if="$(arg gui)" file="$(find rbx2_gui)/launch/rosbridge.launch" />
