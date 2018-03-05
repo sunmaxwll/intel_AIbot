@@ -1,0 +1,14 @@
+<launch>
+
+  <!-- These arguments determine which vision node we run -->
+  <arg name="face" default="false" />
+  <arg name="color" default="false" />
+  <arg name="keypoints" default="false" />
+
+  <include if="$(arg face)" file="$(find mx3_vision)/launch/face_tracker2.launch" />
+  <include if="$(arg color)" file="$(find mx3_vision)/launch/camshift.launch" />
+  <include if="$(arg keypoints)" file="$(find mx3_vision)/launch/lk_tracker.launch" />
+
+  <include file="$(find mx_apps)/launch/object_tracker.launch" />
+
+</launch>
