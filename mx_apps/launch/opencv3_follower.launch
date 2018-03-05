@@ -9,6 +9,6 @@
   <include if="$(arg color)" file="$(find mx3_vision)/launch/camshift.launch" />
   <include if="$(arg keypoints)" file="$(find mx3_vision)/launch/lk_tracker.launch" />
 
-  <include file="$(find mx_apps)/launch/object_follower.launch" />
+  <include file="$(find mx3_vision)/launch/object_tracker2.launch" />
 
 </launch>

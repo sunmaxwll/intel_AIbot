@@ -1,5 +1,5 @@
 <launch>
-  <param name="/camera/driver/depth_registration" value="True" />
+  <param name="/camera/driver/depth_registration" value="False" />
   
   <node pkg="mx3_vision" name="object_tracker" type="object_tracker2.py" output="screen">
   
@@ -8,16 +8,17 @@
 
     <rosparam>
        rate: 10
-       max_z: 2.0
-       goal_z: 0.6
+       max_z: 2.2
+       goal_z: 1.5
        z_threshold: 0.05
-       x_threshold: 0.1
+       x_threshold: 0.05
        z_scale: 1.0
-       x_scale: 0.1
-       max_rotation_speed: 0.2
-       min_rotation_speed: 0.02
-       max_linear_speed: 0.2
+       x_scale: 2.0
+       max_rotation_speed: 0.5
+       min_rotation_speed: 0.1
+       max_linear_speed: 0.5
        min_linear_speed: 0.05
+       scale_roi: 0.9
     </rosparam>
     
   </node>
