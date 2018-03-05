@@ -25,7 +25,6 @@ import rospy
 from sensor_msgs.msg import Image, RegionOfInterest, CameraInfo
 from geometry_msgs.msg import Twist
 from math import copysign, isnan
-from cv2 import cv as cv
 from cv_bridge import CvBridge, CvBridgeError
 import numpy as np
 import thread
