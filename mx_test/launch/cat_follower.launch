@@ -1,4 +1,15 @@
 <launch>
+  <arg name="camera_topic" default="/camera/rgb/image_raw" />
+
+  <include file="$(find movidius_ncs_launch)/launch/ncs_camera.launch">
+    <arg name="cnn_type" value="mobilenetssd" />
+    <arg name="input_topic" value="$(arg camera_topic)" />
+  </include>
+
+  <include file="$(find movidius_ncs_launch)/launch/ncs_stream_detection_example.launch">
+    <arg name="camera_topic" value="$(arg camera_topic)" />
+  </include>
+
   <node pkg="mx_test" name="mx_movidius_roi" type="mx_movidius_roi.py" output="screen">
   </node>
   
