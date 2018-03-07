@@ -3,6 +3,7 @@
   <node name="recognizer" pkg="pocketsphinx" type="recognizer.py" output="screen">
     <param name="lm" value="$(find mx_speech)/config/nav_commands.lm"/>
     <param name="dict" value="$(find mx_speech)/config/nav_commands.dic"/>
+    <param name="hmm" value="/usr/share/pocketsphinx/model/en-us/en-us"/>
   </node>
   
   <node name="voice_nav" pkg="mx_speech" type="voice_nav.py" output="screen">
