@@ -14,6 +14,10 @@ ROS.Kit 是一款面向对ROS有兴趣的人群学习ROS机器人操作系统的
 [realsense_camera](http://wiki.ros.org/realsense_camera)
 https://github.com/intel-ros/realsense.git
 
+git clone https://github.com/intel-ros/realsense.git
+cd  realsense
+git checkout 2.0.2
+
 * ar标签追踪：
 sudo apt-get install ros-kinetic-ar_track_alvar
 
