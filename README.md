@@ -7,6 +7,12 @@ ROS.Kit 是一款面向对ROS有兴趣的人群学习ROS机器人操作系统的
 * 功能包说明 
 
 # 硬件说明: 
+* ROS.Kit BASE Controller 底盘控制器 
+* Intel NUC 便携式主机 
+* Intel Movidius 神经网络计算棒 
+* Intel Realsense LR200 深度摄像头 
+* RPLidar A1 or A2 2D激光雷达 
+* 6 dof 自由度舵机机械臂 
 
 # 软件说明:
 ## 需要安装的依赖库：
@@ -50,6 +56,42 @@ sudo apt-get install ros-kinetic-turtlebot*
 ### 开发中的功能: 
 * MoveIt follower controller 节点 
 * MoveIt gripper controller 节点 
+
+## mx_nav package 
+该包主要用于机器人建立2D地图以及通过AMCL算法定位机器人在地图中的位置，并做自主导航运动(路径规划)。 
+### 已支持的功能: 
+* gmapping 建图例程 
+* amcl 自主导航例程 
+
+### 计划中的功能:
+* ORB SLAM 单目视觉 
+* hector SLAM 
+
+## mx_bringup package 
+该包主要包含了一些机器人入门Demo，主要以机器人底盘控制、激光雷达、深度相机与硬件有关的功能节点。 
+### 已支持的功能: 
+* 底盘运动控制 
+* 深度摄像机控制 
+* 激光雷达控制 
+
+## mx_rviz package 
+该包主要用于启动GUI调试工具rviz。包含了关于gmapping，navigation的rviz配置等。
+## 已经支持的功能: 
+* gmapping_view 
+* amcl_view 
+
+## mx_speech package 
+该包主要用于配合语音识别节点，做机器人的语音控制。 
+
+
+
+
+
+
+
+
+
+
 
 
 
