@@ -17,11 +17,12 @@ ROS.Kit 是一款面向对ROS有兴趣的人群学习ROS机器人操作系统的
 # 软件说明:
 ## 需要安装的依赖库：
 * RGB-D摄像头：
-[realsense_camera](http://wiki.ros.org/realsense_camera)
-https://github.com/intel-ros/realsense.git
+[realsense_camera](http://wiki.ros.org/realsense_camera) 
 
 git clone https://github.com/intel-ros/realsense.git 
+
 cd  realsense 
+
 git checkout 2.0.2 
 
 * RPLIDAR A1激光雷达： 
