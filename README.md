@@ -67,8 +67,35 @@ sudo apt-get install ros-kinetic-turtlebot*
 该包主要用于机器人建立2D地图以及通过AMCL算法定位机器人在地图中的位置，并做自主导航运动(路径规划)。 
 ### 已支持的功能: 
 * gmapping 建图例程 
-* amcl 自主导航例程 
+```
+在机器人本机上:
+1.启动机器人硬件节点-深度摄像头或者激光雷达
+roslaunch mx_bringup rbc_camera_start.launch
+or
+roslaunch mx_bringup rbc_lidar_start.launch 
+2.启动gmapping算法包
+roslaunch mx_nav gmapping_demo.launch
 
+在远程计算机上:
+3.启动gmapping RVIZ可视化工具
+roslaunch mx_rviz gmapping_view.launch
+
+```
+* amcl 自主导航例程 
+```
+在机器人本机上:
+1.启动机器人硬件节点-深度摄像头或者激光雷达
+roslaunch mx_bringup rbc_camera_start.launch
+or
+roslaunch mx_bringup rbc_lidar_start.launch 
+2.启动amcl算法包
+roslaunch mx_nav amcl_demo.launch
+
+在远程计算机上:
+3.启动amcl RVIZ可视化工具
+roslaunch mx_rviz amcl_view.launch
+
+```
 ### 计划中的功能:
 * ORB SLAM 单目视觉 
 * hector SLAM 
@@ -77,43 +104,91 @@ sudo apt-get install ros-kinetic-turtlebot*
 该包主要包含了一些机器人入门Demo，主要以机器人底盘控制、激光雷达、深度相机与硬件有关的功能节点。 
 ### 已支持的功能: 
 * 底盘运动控制 
-* 深度摄像机控制 
-* 激光雷达控制 
+```
+在机器人本机上:
+底盘
+roslaunch mx_bringup rbc_mini_start.launch 
 
+```
+* 深度摄像机控制 
+```
+在机器人本机上:
+底盘+深度摄像头
+roslaunch mx_bringup rbc_camera_start.launch
+
+```
+* 激光雷达控制 
+```
+在机器人本机上:
+底盘+激光雷达
+roslaunch mx_bringup rbc_lidar_start.launch 
+
+```
 ## mx_rviz package 
 该包主要用于启动GUI调试工具rviz。包含了关于gmapping，navigation的rviz配置等。
 ## 已经支持的功能: 
 * gmapping_view 
-* amcl_view 
+```
+在远程计算机上:
+3.启动gmapping RVIZ可视化工具
+roslaunch mx_rviz gmapping_view.launch
 
+```
+* amcl_view 
+```
+在远程计算机上:
+3.启动amcl RVIZ可视化工具
+roslaunch mx_rviz amcl_view.launch
+
+```
 ## mx_speech package 
 该包主要用于配合语音识别节点，做机器人的语音控制。 
+* pocketsphinx 语音识别 
+```
+roslaunch mx_speech voice_nav_start.launch 
+```
 
+## mx(3)_vision package 
+该包主要使用了OpenCV的相关算法实现了机器人的视觉应用。 
+* lk光流追踪 
+* camshift颜色追踪 
+* face面部追踪
 
+## mx_apps package
+该包主要整合了ROS机器人的视觉追踪功能用于演示启动。 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+* 面部追踪 
+```
+roslaunch mx_apps opencv3_tracker.launch face:=true
+```
+* 颜色追踪 
+```
+roslaunch mx_apps opencv3_tracker.launch color:=true
+```
+* 关键点追踪
+```
+roslaunch mx_apps opencv3_tracker.launch keypoints:=true
+```
+* 面部跟随 
+```
+roslaunch mx_apps opencv3_follower.launch face:=true
+```
+* 颜色跟随 
+```
+roslaunch mx_apps opencv3_follower.launch color:=true
+```
+* 关键点跟随 
+```
+roslaunch mx_apps opencv3_follower.launch keypoint:=true
+```
+* 物体跟随 
+```
+roslaunch mx_apps follower2.launch 
+```
+* AR标签跟随 
+```
+roslaunch mx_apps ar_tags_follower.launch 
+```
 
 
 
