@@ -62,6 +62,6 @@ sensors: {
   #motor_current_right:  {pin: 1, type: PololuMotorCurrent, rate: 5},
   #ir_front_center:      {pin: 2, type: GP2D12, rate: 10},
   #sonar_front_center:   {pin: 11, type: Ping, rate: 10},
-  #sonar_back_center:   {pin: 12, type: Ping, rate: 10},
+  #sonar_back_center:    {pin: 12, type: Ping, rate: 10},
   #arduino_led:          {pin: 13, type: Digital, rate: 5, direction: output}
 }

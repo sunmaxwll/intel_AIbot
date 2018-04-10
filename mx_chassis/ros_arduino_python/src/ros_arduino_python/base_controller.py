@@ -29,7 +29,9 @@ from geometry_msgs.msg import Quaternion, Twist, Pose
 from nav_msgs.msg import Odometry
 from tf.broadcaster import TransformBroadcaster
 from std_msgs.msg import Int32
- 
+from covariances import \
+     ODOM_POSE_COVARIANCE, ODOM_POSE_COVARIANCE2, ODOM_TWIST_COVARIANCE, ODOM_TWIST_COVARIANCE2
+      
 """ Class to receive Twist commands and publish Odometry data """
 class BaseController:
     def __init__(self, arduino, base_frame):
@@ -268,6 +270,10 @@ class BaseController:
             odom.twist.twist.linear.x = vxy
             odom.twist.twist.linear.y = 0
             odom.twist.twist.angular.z = vth
+            
+            # Create the odometry covariance. robot_pose_ekf needed by sunMaxwell
+            odom.pose.covariance = ODOM_POSE_COVARIANCE
+            odom.twist.covariance = ODOM_TWIST_COVARIANCE
 
             self.odomPub.publish(odom)
             
