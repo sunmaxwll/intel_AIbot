@@ -6,9 +6,11 @@
 
   <arg name="lr200" default="true" />
   <arg name="r200" default="false" />
+  <arg name="d415" default="false" />
 
-  <include if="$(arg lr200)" file="$(find mx_bringup)/launch/lr200_nodelet_rgbd.launch"/>
-  <include if="$(arg r200)" file="$(find realsense_camera)/launch/r200_nodelet_rgbd.launch" />
+  <include if="$(arg lr200)" file="$(find mx_bringup)/launch/lr200_nodelet_rgbd.launch" />
+  <include if="$(arg r200)" file="$(find realsense_camera)/launch/r200_nodelet_rgbd.launch"/>
+  <include if="$(arg d415)" file="$(find realsense_ros_camera)/launch/rs_rgbd.launch"/>
 
   <!-- Fake laser -->
   <node pkg="nodelet" type="nodelet" name="laserscan_nodelet_manager" args="manager"/>
@@ -17,7 +19,9 @@
     <param name="scan_height" value="10"/>
     <param name="output_frame_id" value="/camera_link"/>
     <param name="range_min" value="0.45"/>
-    <remap from="image" to="/camera/depth/image"/>
+    <remap if="$(arg lr200)" from="image" to="/camera/depth/image"/>
+    <remap if="$(arg r200)" from="image" to="/camera/depth/image"/>
+    <remap if="$(arg d415)" from="image" to="/camera/depth/image_rect_raw"/>
     <remap from="scan" to="/scan"/>
   </node>
 
