@@ -1,0 +1,1 @@
+KERNEL=="ttyUSB*", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", ATTRS{product}=="mx_sensor_dev_by_sunMaxwell", MODE:="0666", GROUP:="dialout",  SYMLINK+="mx_sensor_port"
