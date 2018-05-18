@@ -1,3 +1,0 @@
-<launch>
-<node name="add_two_ints_server" pkg="beginner_tutorials" type="add_two_ints_server" />
-</launch>
