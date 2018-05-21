@@ -1,0 +1,202 @@
+<robot
+  name="ros_bot">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.012567 -4.1577E-05 0.053046"
+        rpy="0 0 0" />
+      <mass
+        value="1.2382" />
+      <inertia
+        ixx="0.014368"
+        ixy="-5.9465E-06"
+        ixz="0.0015576"
+        iyy="0.01573"
+        iyz="-6.5113E-06"
+        izz="0.013211" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mx_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="arcylic">
+        <color
+          rgba="0.29804 0.29804 0.29804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mx_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="left_wheel_link">
+    <inertial>
+      <origin
+        xyz="-0.0187698324757432 2.67563748934663E-14 1.07552855510562E-14"
+        rpy="0 0 0" />
+      <mass
+        value="0.209351737220227" />
+      <inertia
+        ixx="0.000404640656994838"
+        ixy="-2.80165890638414E-16"
+        ixz="-1.12742278313588E-16"
+        iyy="0.000207814987613485"
+        iyz="1.35525271560688E-20"
+        izz="0.000207814987613485" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mx_description/meshes/left_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mx_description/meshes/left_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_wheel"
+    type="continuous">
+    <origin
+      xyz="0 0.119 -0.038"
+      rpy="2.7591 5.9014E-39 -1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_wheel_link" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+  <link
+    name="right_wheel_link">
+    <inertial>
+      <origin
+        xyz="-0.0187698324757432 1.0325074129014E-14 -2.68118860446975E-14"
+        rpy="0 0 0" />
+      <mass
+        value="0.209351737220227" />
+      <inertia
+        ixx="0.000404640656994838"
+        ixy="-1.0835036026544E-16"
+        ixz="2.81261901890978E-16"
+        iyy="0.000207814987613485"
+        iyz="6.7762635780344E-21"
+        izz="0.000207814987613485" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mx_description/meshes/right_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mx_description/meshes/right_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_wheel"
+    type="continuous">
+    <origin
+      xyz="0 -0.119 -0.038"
+      rpy="-1.9384 -5.9014E-39 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_wheel_link" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="camera_link">
+    <inertial>
+      <origin
+        xyz="0.00255704490295461 0.00399310539251607 -0.000513929217654141"
+        rpy="0 0 0" />
+      <mass
+        value="0.0192165264280458" />
+      <inertia
+        ixx="7.23354486409433E-07"
+        ixy="-4.88427025209216E-09"
+        ixz="-3.27508783497781E-07"
+        iyy="2.7697591865378E-05"
+        iyz="-4.04259133306887E-10"
+        izz="2.71788391859005E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mx_description/meshes/camera_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.00784313725490196 0.23921568627451 0.823529411764706 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mx_description/meshes/camera_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="realsense"
+    type="fixed">
+    <origin
+      xyz="-0.097 0.001 0.35"
+      rpy="3.1416 -5.9014E-39 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="camera_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>
