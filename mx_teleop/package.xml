@@ -1,18 +1,23 @@
-<?xml version="1.0"?>
 <package>
   <name>mx_teleop</name>
-  <version>0.6.0</version>
-  <description>Generic keyboard teleop for twist robots.</description>
-
-  <maintainer email="namniart@gmail.com">Austin Hendrix</maintainer>
-
+  <version>2.4.2</version>
+  <description>Provides teleoperation using joysticks or keyboard.</description>
+  <maintainer email="mwise@willowgarage.com">Melonee Wise</maintainer>
   <license>BSD</license>
-
-  <url type="website">http://wiki.ros.org/teleop_twist_keyboard</url>
-
-  <author>Graylin Trevor Jay</author>
+  <url type="website">http://ros.org/wiki/turtlebot_teleop</url>
+  <url type="repository">https://github.com/turtlebot/turtlebot</url>
+  <url type="bugtracker">https://github.com/turtlebot/turtlebot/issues</url>
+  
+  <author email="mwise@willowgarage.com">Melonee Wise</author>
 
   <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>roscpp</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>joy</build_depend>
+  
+  <run_depend>roscpp</run_depend>
   <run_depend>geometry_msgs</run_depend>
-  <run_depend>rospy</run_depend>
+  <run_depend>joy</run_depend>
+
 </package>

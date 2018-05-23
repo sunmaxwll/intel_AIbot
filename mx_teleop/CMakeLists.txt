@@ -1,13 +1,40 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(mx_teleop)
 
-find_package(catkin REQUIRED)
+## Find catkin macros and libraries
+find_package(catkin REQUIRED COMPONENTS roscpp geometry_msgs joy)
 
-catkin_package()
+include_directories(${catkin_INCLUDE_DIRS})
 
-## Mark executable scripts (Python etc.) for installation
-## in contrast to setup.py, you can choose the destination
-catkin_install_python(PROGRAMS
-   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+catkin_package(
+  INCLUDE_DIRS
+  CATKIN_DEPENDS roscpp geometry_msgs joy
+  DEPENDS
 )
 
+###########
+## Build ##
+###########
+
+add_executable(mxbot_teleop_joy src/mxbot_joy.cpp)
+target_link_libraries(mxbot_teleop_joy ${catkin_LIBRARIES})
+
+#############
+## Install ##
+#############
+
+## Mark executable scripts (Python etc.) for installation
+install(PROGRAMS
+  scripts/mxbot_teleop_key
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+## Mark executables and/or libraries for installation
+install(TARGETS mxbot_teleop_joy
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+## Mark all other useful stuff for installation
+install(DIRECTORY launch
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+)
