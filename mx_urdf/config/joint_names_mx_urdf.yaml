@@ -1,0 +1,1 @@
+controller_joint_names: ['left_wheel', 'right_wheel', 'front_omni', 'front_omni_wheel', 'back_omni', 'back_omni_wheel', ]

@@ -1,6 +1,6 @@
 <launch>
 
-  <node pkg="tf" type="static_transform_publisher" name="base_to_laser" args="0.0 0.0 0.0 0 0.0 0.0 base_link laser 100"/>
+  <!--node pkg="tf" type="static_transform_publisher" name="base_to_laser" args="0.0 0.0 0.0 0 0.0 0.0 base_link laser 100"/-->
 
   <include file="$(find mx_bringup)/launch/rbc_mini_start.launch" />
 
@@ -8,7 +8,7 @@
 		  
   <node name="ls01d" pkg="ls01d" type="ls01d" output="screen">
 　　	<param name="scan_topic" value="scan"/>         #设置激光数据topic名称
-　　	<param name="laser_link" value="laser"/>     #激光坐标
+　　	<param name="laser_link" value="lidar"/>     #激光坐标
 　　	<param name="serial_port" value="/dev/rplidar"/>  #雷达连接的串口
         <param name="zero_as_max" value="false"/>        # 设置为true探测不到区域会变成最大值
         <param name="min_as_zero" value="false"/>        # true：探测不到区域为0，false：探测不到区域为inf
