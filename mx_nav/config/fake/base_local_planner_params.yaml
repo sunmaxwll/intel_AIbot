@@ -3,12 +3,12 @@ recovery_behavior_enabled: false
 clearing_rotation_allowed: false
 
 TrajectoryPlannerROS:
-   max_vel_x: 0.35
+   max_vel_x: 0.5
    min_vel_x: 0.05
    max_vel_y: 0.0  # zero for a differential drive robot
    min_vel_y: 0.0
-   max_vel_theta: 0.3
-   min_vel_theta: -0.3
+   max_vel_theta: 0.5
+   min_vel_theta: -0.5
    min_in_place_vel_theta: 0.4
    escape_vel: -0.1
    acc_lim_x: 2.5
@@ -19,8 +19,8 @@ TrajectoryPlannerROS:
    yaw_goal_tolerance: 0.7 # about -- degrees
    xy_goal_tolerance: 0.10  # 10 cm
    latch_xy_goal_tolerance: false
-   pdist_scale: 0.8
-   gdist_scale: 0.4
+   pdist_scale: 0.65
+   gdist_scale: 0.35
    meter_scoring: true
 
    heading_lookahead: 0.325
@@ -31,11 +31,11 @@ TrajectoryPlannerROS:
    publish_cost_grid_pc: false
    prune_plan: true
 
-   sim_time: 1.0
+   sim_time: 2.5
    sim_granularity: 0.025
    angular_sim_granularity: 0.025
-   vx_samples: 12
+   vx_samples: 20
    vy_samples: 0  # zero for a differential drive robot
-   vtheta_samples: 20
+   vtheta_samples: 40
    dwa: true
    simple_attractor: false

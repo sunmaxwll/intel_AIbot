@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import rospy
 from std_msgs.msg import String
-from movidius_ncs_msgs.msg import ObjectsInBoxes
+from object_msgs.msg import ObjectsInBoxes
 from sensor_msgs.msg import RegionOfInterest as ROI
 
 def callback(data):
