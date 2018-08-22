@@ -1,0 +1,7 @@
+image: /home/intel/mxBot_ws/src/mx_turtleBot/mx_nav/maps/map2.pgm
+resolution: 0.050000
+origin: [-34.600000, -26.600000, 0.000000]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
+

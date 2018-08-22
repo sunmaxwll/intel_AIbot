@@ -11,7 +11,7 @@
   </node>
 
   <node name="mx_teleop" pkg="mx_teleop" type="mx_teleop_keyboard.py" output="screen">
-  <param name="~speed"    value="0.25"/>
+  <param name="~speed"    value="0.5"/>
   <param name="~turn"    value="1.0"/>
   </node>
 

@@ -12,6 +12,7 @@ from std_msgs.msg import String
 def wcMsg(msg):
     pub = rospy.Publisher('weChat_cmd', String, queue_size=10)
     tts = rospy.Publisher('/voice_system/tts_topic', String, queue_size=10)
+    nlu = rospy.Publisher('/voice_system/nlu_topic', String, queue_size=10)
 
     rospy.init_node('weChat2ROS', anonymous=True)
     rate = rospy.Rate(1) # 10hz
@@ -42,6 +43,7 @@ def wcMsg(msg):
         itchat.send(u'ROS机器人-不走了', 'filehelper')
 
     tts.publish(msg['Text'])
+    nlu.publish(msg['Text'])
     rate.sleep()
 
     return

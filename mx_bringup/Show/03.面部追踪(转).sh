@@ -4,7 +4,7 @@ source /home/intel/ros_voice_system/devel/setup.bash;
 
 gnome-terminal -t "播报服务" -x bash -c "roslaunch mx_bringup mx_soundplay.launch ;exec bash;"
 
-sleep 0.5 
+sleep 1.0
 echo Open C V Face Tracking Mode|rosrun sound_play say.py
 
 gnome-terminal -t "启动rbcBot机器人" -x bash -c "roslaunch mx_bringup rbc_camera_start.launch ;exec bash;"

@@ -1,0 +1,8 @@
+<launch>
+  <node pkg="mx_test" name="weChat2ROS" type="weChat2ROS.py" output="screen">
+  </node>
+
+  <node pkg="mx_test" name="weChat_teleop" type="weChat_teleop.py" output="screen">
+  </node>
+
+</launch>
