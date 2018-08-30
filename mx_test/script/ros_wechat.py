@@ -5,7 +5,7 @@
 import requests
 import itchat
 import rospy
-roskey = u'ROS'
+roskey = u''
 
 from std_msgs.msg import String
 @itchat.msg_register(itchat.content.TEXT)
@@ -53,7 +53,9 @@ def wcMsg(msg):
     defaultreplay = u'您的输入有误，请输入:'+roskey+u'您的指令'
     replay = u''
     if msg1 == roskey and msg2 != u'':
-    	replay = u'您的指令:"'+msg2+u'"已发送成功'	
+    	replay = u'您的指令:"'+msg2+u'"已发送成功'
+    if msg1 != roskey :
+	itchat.send(u'您的输入有误，请输入:'+roskey+u'您的指令', 'filehelper')	
     if msg1 == roskey:
 	    tts.publish(msg2)
 	    nlu.publish(msg2)
