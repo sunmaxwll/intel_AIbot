@@ -6,7 +6,7 @@ import requests
 import itchat
 import rospy
 roskey = u'ROS'
-group_name = u'政校企合作业务部'
+group_name = u'ROS机器人微信互动群'
 group_id = u''
 flag = 0
 

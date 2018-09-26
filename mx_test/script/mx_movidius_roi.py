@@ -28,7 +28,7 @@ def object_roi():
     # run simultaneously.
     rospy.init_node('movidius_roi_node', anonymous=False)
 
-    rospy.Subscriber("/movidius_ncs_nodelet/detected_objects", ObjectsInBoxes, callback, queue_size=1)
+    rospy.Subscriber("/movidius_ncs_nodelet/detected_objects_multiple", ObjectsInBoxes, callback, queue_size=1)
 
     # spin() simply keeps python from exiting until this node is stopped
     rospy.spin()
