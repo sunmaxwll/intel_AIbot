@@ -1,55 +1,80 @@
-# LiveCD sunMaxwell ROS KIT
+# Shell 脚本说明
 
-# install mx_turtleBot package
+## Demo目录
 
-## Manual
+__Demo目录，是一键启动脚本，启动之前会关闭所有现有终端，然后开始启动。序号是按照大写字母排列。__
 
-cd ~/mxBot_ws/src
+__注意：每一个脚本对应一个完整的功能__
 
-git clone http://github.com/sunmaxwll/mx_turtleBot.git
+* 00.关闭所有
+* A.AR跟随(跟)
+* B.颜色跟随(跟)
+* C.颜色追踪(转)
+* D.面部跟随(跟)
+* E.面部追踪(转)
+* F.建立地图(深度相机)
+* G.建立地图(激光雷达)
+* H.自主导航(深度相机)
+* I.自主导航(激光雷达)
+* J.深度跟随(深度相机)
+* K.跟随建图(激光雷达)
+* L.NCS_SSDMobile_Demo（启动usb摄像头，SSDMobile图像识别，Movidius计算棒加速）
+* M.NCS_SSDMobile_Demo_RS（启动realsense摄像头，SSDMobile图像识别，Movidius计算棒加速）
+* N.NCS_TinyYolo_Demo（启动usb摄像头，TinyYolo图像识别，Movidius计算棒加速）
+* O.NCS_TinyYolo_Demo_RS（启动realsense摄像头，TinyYolo图像识别，Movidius计算棒加速）
+* P.OpenCl_Yolo2_Demo（启动usb摄像头，OpenCl_Yolo2图像识别，intel OpenCl cpu加速）
+* Q.OpenCl_Yolo2_Demo_RS（启动realsense摄像头，OpenCl_Yolo2图像识别，intel OpenCl cpu加速）
 
-cd ..
+# Shell目录
 
-catkin_make
+__是单独的启动脚本，是一些单独基础的功能，启动前不会关闭所有终端，根据自己的需求，选择启动需要的节点。__
 
-rospack profile
+__注意：每一个脚本对应一个基础的功能，需要组合使用完成复杂任务__
 
-source devel/setup.bash
+* 00.关闭所有
+* 01.启动底盘(深度相机)
+* 02.启动底盘(激光雷达)
+* 03.启动底盘(激光雷达+手柄)
+* 04.保存地图
+* 05.端茶倒水
+* 06.微信控制
+* 07.微信群控制
+* 08.语音交互
+* 09.深度学习追猫
+* 10.设置语音控制词
 
-## Script
+## 常用任务启动示例
 
-cd ~/
+__当开启新的或者结束旧的任务时，请先执行"00.关闭所有"__
 
-./install_mxBot.sh
+### 使用键盘控制建立环境地图 
+- 启动 G.建立地图(激光雷达) (Demo目录中)，建立地图
+- 启动 04.保存地图，保存建立好的地图
 
-# USB Camera Demo
+### 机器跟随建立环境地图
+- 启动 K.跟随建图(激光雷达) (Demo目录中)，建立地图
+- 启动 04.保存地图，保存建立好的地图
 
-* Movidius NCS Demo
+### 语音系统
+- 启动 08.语音交互
 
-~/Desktop/Demo/NCS_SSDMobile_Demo.sh
+### 微信控制
+- 启动 (01或02)
+- 启动 08
+- 启动 (06或07)
 
-~/Desktop/Demo/NCS_TinyYolo_Demo.sh
+### 语音导航
+- 启动 02
+- 启动 05 
+- 在RVIZ中，使用publish point工具，设置起点位置（家）和终点位置（厨房）
+- 启动 08
+- 启动 06
+- 在微信中发布命令
 
-* openCL CAFFE Demo
+### 追猫功能
+- 启动 09
 
-~/Desktop/Demo/OpenCl_Yolo2_Demo.sh
+### 设置语音微信控制关键词
+- 启动 10
 
-* mxBot Device Demo
-
-roslaunch mx_bringup rbc_mini_start.launch
-
-# Realsense LR200
-
-{DIT_DEMO}/*Demo_RS.sh
-
-# RGBD-SLAM
-
-roslaunch realsense_camera sr300_nodelet_rgbd.launch
-
-cd ~/SLAM/rgbdslam_catkin_ws/
-
-source devel/setup.bash 
-
-roslaunch rgbdslam rgbdslam.launch
-
-# sunMaxwell 阳光明媚 AT: 2018.06.07
+# 作者 Stefan & sunMaxwell AT:2018.10.17

@@ -10,7 +10,7 @@ sleep 0.5
 
 echo Mobile NET SSD Object detection Mode|rosrun sound_play say.py
 
-gnome-terminal -x bash -c "roslaunch mx_bringup lr200_nodelet_rgbd.launch "
+gnome-terminal -x bash -c "roslaunch realsense_camera r200_nodelet_rgbd.launch"
 
 sleep 1
 
