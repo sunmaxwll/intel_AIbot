@@ -13,8 +13,8 @@ from std_msgs.msg import String
 
 def wcMsg(msg): 
     global roskey
-    pub = rospy.Publisher('/test_string', String, queue_size=10)
-    tts = rospy.Publisher('/voice_system/tts_topic', String, queue_size=10)
+    #pub = rospy.Publisher('/test_string', String, queue_size=10)
+    #tts = rospy.Publisher('/voice_system/tts_topic', String, queue_size=10)
     nlu = rospy.Publisher('/voice_system/nlu_topic', String, queue_size=10)
     rospy.init_node('weChat2ROS', anonymous=True)
     rate = rospy.Rate(1) # 10hz
@@ -57,9 +57,9 @@ def wcMsg(msg):
     if msg1 != roskey :
 	itchat.send(u'您的输入有误，请输入:'+roskey+u'您的指令', 'filehelper')	
     if msg1 == roskey:
-	    tts.publish(msg2)
+	    #tts.publish(msg2)
 	    nlu.publish(msg2)
-	    rate.sleep()
+	    #rate.sleep()
 	    
     return replay or defaultreplay
 

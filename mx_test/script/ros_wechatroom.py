@@ -19,7 +19,7 @@ def wcMsg(msg):
     global group_name
     global group_id
     global flag
-    tts = rospy.Publisher('/voice_system/tts_topic', String, queue_size=10)
+    #tts = rospy.Publisher('/voice_system/tts_topic', String, queue_size=10)
     nlu = rospy.Publisher('/voice_system/nlu_topic', String, queue_size=10)
     rospy.init_node('weChat2ROS', anonymous=True)
     rate = rospy.Rate(1) # 10hz
@@ -73,9 +73,9 @@ def wcMsg(msg):
         itchat.send(u'ROS机器人-不走了', 'filehelper')
 
     if msg1 == roskey:
-	    tts.publish(msg2)
+	    #tts.publish(msg2)
 	    nlu.publish(msg2)
-	    rate.sleep()
+	    #rate.sleep()
     msg0 = u''
 	    
     return
